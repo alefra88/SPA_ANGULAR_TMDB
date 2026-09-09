@@ -1,0 +1,71 @@
+<div class="container mx-auto p-4 relative">
+  <h2 class="text-3xl font-bold text-center text-blue-800 mb-6">Catálogo de Películas</h2>
+  
+  <!-- Menú de Navegación -->
+  <div class="flex flex-wrap justify-center gap-4 mb-8">
+    <button (click)="cambiarCategoria('top_rated')" 
+            [class.bg-blue-600]="categoriaActual() === 'top_rated'" 
+            [class.text-white]="categoriaActual() === 'top_rated'"
+            [class.bg-gray-200]="categoriaActual() !== 'top_rated'"
+            [class.text-gray-700]="categoriaActual() !== 'top_rated'"
+            class="px-6 py-2 rounded-full font-semibold transition-colors shadow-sm hover:bg-blue-500 hover:text-white cursor-pointer">
+      Mejor Valoradas
+    </button>
+
+    <button (click)="cambiarCategoria('popular')" 
+            [class.bg-blue-600]="categoriaActual() === 'popular'" 
+            [class.text-white]="categoriaActual() === 'popular'"
+            [class.bg-gray-200]="categoriaActual() !== 'popular'"
+            [class.text-gray-700]="categoriaActual() !== 'popular'"
+            class="px-6 py-2 rounded-full font-semibold transition-colors shadow-sm hover:bg-blue-500 hover:text-white cursor-pointer">
+      Populares
+    </button>
+
+    <button (click)="cambiarCategoria('now_playing')" 
+            [class.bg-blue-600]="categoriaActual() === 'now_playing'" 
+            [class.text-white]="categoriaActual() === 'now_playing'"
+            [class.bg-gray-200]="categoriaActual() !== 'now_playing'"
+            [class.text-gray-700]="categoriaActual() !== 'now_playing'"
+            class="px-6 py-2 rounded-full font-semibold transition-colors shadow-sm hover:bg-blue-500 hover:text-white cursor-pointer">
+      En Cines
+    </button>
+
+    <button (click)="cambiarCategoria('upcoming')" 
+            [class.bg-blue-600]="categoriaActual() === 'upcoming'" 
+            [class.text-white]="categoriaActual() === 'upcoming'"
+            [class.bg-gray-200]="categoriaActual() !== 'upcoming'"
+            [class.text-gray-700]="categoriaActual() !== 'upcoming'"
+            class="px-6 py-2 rounded-full font-semibold transition-colors shadow-sm hover:bg-blue-500 hover:text-white cursor-pointer">
+      Próximos Estrenos
+    </button>
+  </div>
+
+  <!-- Cuadrícula con la Lista de películas -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    @for (pelicula of peliculas(); track pelicula.id) {
+      <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + pelicula.poster_path" 
+             alt="Poster" 
+             class="w-full h-auto object-cover">
+             
+        <div class="p-4">
+          <h3 class="text-lg font-semibold truncate">{{ pelicula.title }}</h3>
+          <p class="text-sm text-gray-500 mb-4">Calificación: {{ pelicula.vote_average }} ⭐</p>
+          
+          <button (click)="verDetalle(pelicula.id)" 
+                  class="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
+            Ver Detalles
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Sección donde el Padre manda a llamar al Modal del Hijo -->
+  <div class="mt-10">
+    @if (idSeleccionado() !== null) {
+      <app-movie-detail [id]="idSeleccionado()!" (cerrar)="cerrarDetalle()"></app-movie-detail>
+    }
+  </div>
+
+</div>

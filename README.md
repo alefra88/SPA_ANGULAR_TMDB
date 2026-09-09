@@ -1,59 +1,39 @@
-# CinemaUVEG
+# 🎬 Cinema UVEG
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+Cinema UVEG es una Single Page Application (SPA) desarrollada con **Angular 17+** y **TypeScript**. Este proyecto consume la API pública de **The Movie Database (TMDB)** para mostrar un catálogo dinámico de películas con distintas categorías y detalles en profundidad.
 
-## Development server
+El proyecto fue desarrollado como parte del módulo de Programación Web Multiplataforma de la Universidad Virtual del Estado de Guanajuato (UVEG).
 
-To start a local development server, run:
+## 🚀 Características Principales
 
-```bash
-ng serve
-```
+- **Arquitectura Moderna:** Construida 100% con Componentes Standalone (sin `NgModules`).
+- **Reactividad con Signals:** Uso intensivo de la nueva API de Angular (`signal`, `effect()`, `input()`, `output()`) para el manejo del estado local, eliminando la dependencia excesiva de RxJS.
+- **Diseño UI/UX:** Interfaz responsiva y estilizada con **Tailwind CSS**. Incluye un modal de detalles con efecto visual *Glassmorphism* (`backdrop-blur`).
+- **Navegación Dinámica:** Catálogo interactivo que permite alternar entre:
+  - Mejor Valoradas (`top_rated`)
+  - Populares (`popular`)
+  - En Cines (`now_playing`)
+  - Próximos Estrenos (`upcoming`)
+- **Manejo de Errores Global:** Implementación de un `HttpInterceptor` funcional para capturar errores de la API (401, 404, 500) y notificar al usuario.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Tecnologías Utilizadas
 
-## Code scaffolding
+- [Angular CLI](https://github.com/angular/angular-cli) versión 17+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TMDB API](https://developer.themoviedb.org/docs)
+- [AWS S3](https://aws.amazon.com/es/s3/) (Para el despliegue en producción)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ⚙️ Requisitos Previos
 
-```bash
-ng generate component component-name
-```
+Para ejecutar este proyecto de manera local, necesitas tener instalado:
+- Node.js (v18 o superior)
+- Angular CLI (`npm install -g @angular/cli`)
+- Un Token de acceso válido (Bearer Token) de la [API de TMDB](https://www.themoviedb.org/settings/api).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 💻 Instalación y Uso Local
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Clonar el repositorio**
+   ```bash
+   git clone [https://github.com/tu-usuario/cinema-uveg.git](https://github.com/tu-usuario/cinema-uveg.git)
+   cd cinema-uveg

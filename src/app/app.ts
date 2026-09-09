@@ -1,12 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+// Importamos tu componente de la lista
+import { MovieList } from './components/movie-list/movie-list'; 
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
-  templateUrl: './app.html',
+  standalone: true,
+  // RÚBRICA: Agregamos MovieList a los imports
+  imports: [ MovieList], 
+  templateUrl: './app.html' 
 })
 export class App {
-  protected readonly title = signal('CinemaUVEG');
+  title = 'Cinema UVEG';
 }
