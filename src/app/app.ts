@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-// Importamos tu componente de la lista
+// Importamos componente de la lista
 import { MovieList } from './components/movie-list/movie-list'; 
 
 @Component({
