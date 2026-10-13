@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class MovieService {
   private http = inject(HttpClient);
   private apiUrl = 'https://api.themoviedb.org/3/movie';
-  private token = ''; //  aquí  Read Access Token
+  private token = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NGZhYjhkMTg1ZWRhNzA4ZTg3YWRlODQ5OTA0NGMzMiIsIm5iZiI6MTczOTMzMDIxNS4wNzUsInN1YiI6IjY3YWMxMmE3NmViMzZkMGRhZDliYzNjZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dk7gptJzSK26NTQGzXm8UAZ1G3TTnf_ttHIeTtWWp9E'; //  aquí  Read Access Token
 
   private getHeaders() {
     return { headers: new HttpHeaders({ 'Authorization': `Bearer ${this.token}` }) };
